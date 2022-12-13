@@ -69,3 +69,5 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs['class'] = 'form-control'
 
 
+
+

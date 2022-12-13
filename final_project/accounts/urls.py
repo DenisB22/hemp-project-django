@@ -3,7 +3,7 @@ from django.urls import path
 
 from final_project.accounts.views import register_user, login_user, activate, forgotPassword, \
     resetPassword, resetpassword_validate, change_password, EditProfileView, OrderDetail, MyOrders, \
-    LogoutUser, Dashboard
+    LogoutUser, Dashboard, DeleteProfileView
 from final_project.carts.views import cart
 
 urlpatterns = (
@@ -25,6 +25,7 @@ urlpatterns = (
     path('my_orders/', login_required(MyOrders.as_view()), name='my_orders'),
     path('edit_profile/', login_required(EditProfileView.as_view()), name='edit_profile'),
     # path('edit_profile/', edit_profile, name='edit_profile'),
+    path('delete_profile/<int:pk>/', DeleteProfileView.as_view(), name='delete_profile'),
     path('change_password/', change_password, name='change_password'),
     # path('order_detail/<int:order_id>/', order_detail, name='order_detail'),
     path('order_detail/<int:order_id>/', login_required(OrderDetail.as_view()), name='order_detail'),

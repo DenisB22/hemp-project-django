@@ -1,7 +1,10 @@
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views import View
+from django.urls import reverse_lazy
+from django.views import View, generic
 
 from final_project.accounts.forms import RegisterForm, UserForm, UserProfileForm
 from final_project.accounts.models import Account, UserProfile
@@ -114,6 +117,7 @@ def login_user(request):
             except:
                 pass
             auth.login(request, user)
+
             messages.success(request, 'You are now logged in.')
             # Grabs the previous URL from where we came
             url = request.META.get('HTTP_REFERER')
@@ -399,6 +403,17 @@ class OrderDetail(View):
             'subtotal': subtotal,
         }
         return render(request, 'accounts/order_detail.html', context)
+
+
+class DeleteProfileView(SuccessMessageMixin, generic.DeleteView):
+    model = Account
+    template_name = 'accounts/delete_profile_confirm.html'
+
+    # success_message = 'Your profile has been deleted.'
+    success_url = reverse_lazy('home')
+
+
+
 
 
 

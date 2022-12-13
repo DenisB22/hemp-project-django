@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <!-- ========================= SECTION CONTENT ========================= -->
+
+    <section class="section-conten padding-y bg">
+        {% include 'includes/alerts.html' %}
+        <div class="container">
+            <div class="row">
+
+                <main class="col-md-9-del">
+                    <article class="card">
+                        <header class="card-header">
+                            <strong class="d-inline-block mr-3">Delete your profile</strong>
+
+                        </header>
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <h3>Delete Your Account</h3>
+                                        <h5 style="color: dimgrey">We're sorry to see you go.</h5>
+                                        <p>Before you go...</p>
+                                        <ul>
+                                            <li>
+                                                If you want to change your username, you can <a
+                                                    href="{% url 'edit_profile' %}" style="color: green">do that
+                                                here.</a>
+                                            </li>
+                                            <li>
+                                                Account deletion is final. There will be no way to restore your account.
+                                            </li>
+                                        </ul>
+
+                                        <center>
+                                            <button type="submit" class="btn btn-danger">Delete Account</button>
+                                        </center>
+                                    </form>
+                                </div>
+
+                            </div> <!-- row.// -->
+                        </div> <!-- card-body .// -->
+
+                    </article><!-- order-group.// -->
+                </main>
+            </div> <!-- row.// -->
+        </div>
+
+
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+{% endblock %}
