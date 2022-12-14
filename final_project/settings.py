@@ -25,7 +25,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = bool(os.getenv('DEBUG'))
+# DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ['hemp-project.herokuapp.com', '127.0.0.1']
 
@@ -177,8 +178,9 @@ MESSAGE_TAGS = {
 # SMTP configuration
 # EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = os.getenv('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_PORT = int(os.getenv('EMAIL_PORT'))
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
+EMAIL_USE_TLS = bool(os.getenv('EMAIL_USE_TLS'))
+# EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
