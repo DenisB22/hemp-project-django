@@ -152,7 +152,7 @@ STATICFILES_DIRS = (
     BASE_DIR / 'staticfiles',
 )
 
-STATIC_ROOT = BASE_DIR / 'tmp/staticfiles'
+STATIC_ROOT = BASE_DIR / 'static'
 
 # media files configuration
 MEDIA_URL = 'media/'
