@@ -150,6 +150,8 @@ STATICFILES_DIRS = (
     BASE_DIR / 'staticfiles',
 )
 
+STATIC_ROOT = '/tmp/final_project/staticfiles'
+
 # media files configuration
 MEDIA_URL = 'media/'
 
