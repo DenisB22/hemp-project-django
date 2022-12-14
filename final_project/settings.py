@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = bool(os.getenv('DEBUG'))
 # DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['hemp-project-cli.herokuapp.com/', 'hemp-project.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['hemp-project.herokuapp.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
