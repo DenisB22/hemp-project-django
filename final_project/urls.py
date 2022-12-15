@@ -31,4 +31,9 @@ urlpatterns = [
 
     # ORDERS
     path('orders/', include('final_project.orders.urls'), name='orders'),
+
+    # Enables browsable API of DRF
+    path('api-auth/', include('rest_framework.urls')),
+    path('api/', include('final_project.store.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,15 +1,24 @@
 from django.contrib import messages
 from django.core.paginator import Paginator
 from django.http import HttpResponse
+from rest_framework import serializers
+from rest_framework import generics as rest_views
+from rest_framework import views  as rest_base_views
+from rest_framework import viewsets
+
 from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Q
+from rest_framework.response import Response
 
 from final_project.carts.models import CartItem
 from final_project.carts.views import _cart_id
 from final_project.category.models import Category
 from final_project.orders.models import OrderProduct
 from final_project.store.forms import ReviewForm
+
 from final_project.store.models import Product, ReviewRating, ProductGallery
+from final_project.store.serializers import CategorySerializer, ProductSerializer, ShortProductSerializer, \
+    ShortCategorySerializer
 
 
 # Create your views here
@@ -42,6 +51,58 @@ def store(request, category_slug=None):
         # 'page_obj': page_obj,
     }
     return render(request, 'store/store.html', context)
+
+
+class CategoriesListApiView(rest_views.ListAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+# JSON serialization, i.e. parse models into JSON
+class ProductsListApiView(rest_views.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        category_id = self.request.query_params.get('category_id')
+        queryset = self.queryset
+        if category_id:
+            queryset = queryset.filter(category_id=category_id)
+        return queryset.all()
+
+
+class NameSerializer(serializers.Serializer):
+    category_name = serializers.CharField()
+
+
+class DemoSerializer(serializers.Serializer):
+    products = ShortProductSerializer(many=True)
+    products_count = serializers.IntegerField()
+    categories = ShortCategorySerializer(many=True)
+    first_category = serializers.CharField()
+    category_names = NameSerializer(many=True)
+
+
+class DemoApiView(rest_base_views.APIView):
+    def get(self, request):
+        products = Product.objects.all()
+        categories = Category.objects.all()
+        body = {
+            'products': products,
+            'products_count': products.count(),
+            'categories': categories,
+            'first_category': categories.first(),
+            'category_names': categories,
+        }
+
+        serializers = DemoSerializer(body)
+
+        return Response(serializers.data)
+
+
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 
 
 def product_details(request, category_slug, product_slug):
