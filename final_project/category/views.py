@@ -16,6 +16,7 @@ def get_products():
 def home(request):
 
     products = get_products()
+    reviews = None
 
     # Get the reviews
     for product in products:
