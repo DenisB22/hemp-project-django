@@ -130,9 +130,16 @@ def login_user(request):
                     return redirect(nextPage)
             except:
                 return redirect('dashboard')
+            context = {
+                'user': user,
+            }
+
+            return render(request, 'accounts/login.html', context)
+
         else:
             messages.error(request, 'Invalid login credentials')
             return redirect('login_user')
+
 
     return render(request, 'accounts/login.html')
 

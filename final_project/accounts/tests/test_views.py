@@ -1,13 +1,19 @@
+from django.contrib.auth import get_user, get_user_model
+from django.http import HttpRequest
 from django.test import TestCase, Client
 from django.urls import reverse
+
+from final_project.accounts.forms import RegisterForm
 from final_project.accounts.models import Account, UserProfile
 import json
 
 
+UserModel = get_user_model()
+
 class TestView(TestCase):
 
     def setUp(self):
-        self.client = Client()
+        # self.client = Client()
         self.register_user_url = reverse('register_user')
         self.login_user_url = reverse('login_user')
 
@@ -47,5 +53,10 @@ class TestView(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'accounts/login.html')
+
+
+
+
+
 
 
