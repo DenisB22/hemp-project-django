@@ -107,29 +107,29 @@ AUTH_USER_MODEL = 'accounts.Account'
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': os.environ.get('DB_ENGINE'),
-#         'NAME': os.environ.get('DB_NAME'),
-#         'USER': os.environ.get('DB_USER'),
-#         'PASSWORD': os.environ.get('DB_PASSWORD'),
-#         'HOST': os.environ.get('DB_HOST'),
-#         'PORT': int(os.environ.get('DB_PORT')),
-#         # 'PORT': config('DB_PORT'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': "django.db.backends.postgresql",
-        'NAME': "ddsfegki1jmjih",
-        'USER': "sxkaqnjneiajdp",
-        'PASSWORD': "eb66388abe442c29536ca3fc2df3988dc3a8c7f7c2b7960faaabc38fac30bf5b",
-        'HOST': "ec2-52-73-155-171.compute-1.amazonaws.com",
-        'PORT': "5432",
+        'ENGINE': os.environ.get('DB_ENGINE'),
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
         # 'PORT': config('DB_PORT'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': "django.db.backends.postgresql",
+#         'NAME': "ddsfegki1jmjih",
+#         'USER': "sxkaqnjneiajdp",
+#         'PASSWORD': "eb66388abe442c29536ca3fc2df3988dc3a8c7f7c2b7960faaabc38fac30bf5b",
+#         'HOST': "ec2-52-73-155-171.compute-1.amazonaws.com",
+#         'PORT': "5432",
+#         # 'PORT': config('DB_PORT'),
+#     }
+# }
 
 
 # Password validation
