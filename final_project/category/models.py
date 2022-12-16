@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from cloudinary import models as cloudinary_models
+
 
 # Create your models here.
 
@@ -28,8 +30,9 @@ class Category(models.Model):
         blank=True,
     )
 
-    category_image = models.ImageField(
-        upload_to='photos/categories',
+    category_image = cloudinary_models.CloudinaryField(
+        resource_type='image',
+        # upload_to='photos/categories',
         blank=True,
     )
 

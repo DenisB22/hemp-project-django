@@ -1,6 +1,8 @@
 from django.contrib.auth.base_user import AbstractBaseUser, BaseUserManager
 from django.db import models
 
+from cloudinary import models as cloudinary_models
+
 
 # Create your models here.
 
@@ -143,10 +145,15 @@ class UserProfile(models.Model):
         blank=True,
     )
 
-    profile_picture = models.ImageField(
-        upload_to='userprofile/',
+    profile_picture = cloudinary_models.CloudinaryField(
+        resource_type='image',
         blank=True,
     )
+
+    # profile_picture = models.ImageField(
+    #     upload_to='userprofile/',
+    #     blank=True,
+    # )
 
     city = models.CharField(
         max_length=MAX_LEN_CITY,

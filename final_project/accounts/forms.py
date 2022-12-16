@@ -1,6 +1,8 @@
 from django import forms
 
 from final_project.accounts.models import Account, UserProfile
+from cloudinary import models as cloudinary_models
+from cloudinary import forms as cloudinary_forms
 
 
 class RegisterForm(forms.ModelForm):
@@ -58,6 +60,8 @@ class UserForm(forms.ModelForm):
 
 class UserProfileForm(forms.ModelForm):
     profile_picture = forms.ImageField(required=False, error_messages={'invalid': {"Image files only"}}, widget=forms.FileInput)
+
+
 
     class Meta:
         model = UserProfile

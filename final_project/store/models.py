@@ -5,6 +5,8 @@ from django.urls import reverse
 from final_project.accounts.models import Account
 from final_project.category.models import Category
 
+from cloudinary import models as cloudinary_models
+
 
 # Create your models here.
 
@@ -35,9 +37,13 @@ class Product(models.Model):
         blank=False,
     )
 
-    images = models.ImageField(
-        upload_to='photos/products'
+    images = cloudinary_models.CloudinaryField(
+        resource_type='image',
     )
+
+    # images = models.ImageField(
+    #     upload_to='photos/products'
+    # )
 
     stock = models.IntegerField(
         null=False,
@@ -200,8 +206,9 @@ class ProductGallery(models.Model):
         on_delete=models.CASCADE,
     )
 
-    image = models.ImageField(
-        upload_to='store/products',
+    image = cloudinary_models.CloudinaryField(
+        resource_type='image',
+        # upload_to='store/products',
         max_length=MAX_LEN_IMAGE,
     )
 

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 import django_heroku
+import cloudinary
 # from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -203,4 +204,11 @@ EMAIL_USE_TLS = bool(os.environ.get('EMAIL_USE_TLS'))
 # EMAIL_USE_TLS = config('EMAIL_USE_TLS', cast=bool)
 
 # django_heroku.settings(locals())
+
+cloudinary.config(
+  cloud_name="djywfttgp",
+  api_key="794572519735312",
+  api_secret="cegMzYrHkLkXw_0HqqLVDpCjWok",
+  secure=True
+)
 
