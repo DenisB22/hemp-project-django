@@ -31,7 +31,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = bool(os.environ.get('DEBUG'))
 # DEBUG = config('DEBUG', default=True, cast=bool)
 
-ALLOWED_HOSTS = ['hemp-project.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['hemp-project.herokuapp.com', '127.0.0.1', 'localhost', 'cannamind.net', 'www.cannamind.net']
 # ALLOWED_HOSTS = ['hemp-project.herokuapp.com']
 
 
