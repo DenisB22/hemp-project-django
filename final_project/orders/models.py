@@ -115,8 +115,8 @@ class Order(models.Model):
 
     address_line_2 = models.CharField(
         max_length=MAX_LEN_ADDRESS_LINE_2,
-        blank=False,
-        null=False,
+        blank=True,
+        null=True,
     )
 
     country = models.CharField(
@@ -127,8 +127,8 @@ class Order(models.Model):
 
     state = models.CharField(
         max_length=MAX_LEN_STATE,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
     )
 
     city = models.CharField(
@@ -139,8 +139,8 @@ class Order(models.Model):
 
     order_note = models.CharField(
         max_length=MAX_LEN_ORDER_NOTE,
-        null=False,
-        blank=False,
+        null=True,
+        blank=True,
     )
 
     order_total = models.FloatField(
