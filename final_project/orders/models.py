@@ -115,9 +115,8 @@ class Order(models.Model):
 
     address_line_2 = models.CharField(
         max_length=MAX_LEN_ADDRESS_LINE_2,
-        default='',
-        blank=True,
-        null=True,
+        blank=False,
+        null=False,
     )
 
     country = models.CharField(
