@@ -111,7 +111,8 @@ def place_order(request, total=0, quantity=0):
             data.phone = form.cleaned_data['phone']
             data.email = form.cleaned_data['email']
             data.address_line_1 = form.cleaned_data['address_line_1']
-            data.address_line_2 = form.cleaned_data['address_line_2']
+            if data.address_line_2:
+                data.address_line_2 = form.cleaned_data['address_line_2']
             data.country = form.cleaned_data['country']
             data.state = form.cleaned_data['state']
             data.city = form.cleaned_data['city']
@@ -140,6 +141,7 @@ def place_order(request, total=0, quantity=0):
                 'grand_total': grand_total,
             }
             return render(request, 'orders/payments.html', context)
+
     else:
         return redirect('checkout')
 
