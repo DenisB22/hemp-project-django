@@ -2,7 +2,7 @@ from django.urls import path
 
 
 from final_project.store.views import store, product_details, product_search, submit_review, ProductsListApiView, \
-    CategoriesListApiView, DemoApiView
+    CategoriesListApiView, DemoApiView, about_page
 
 urlpatterns = (
     path('', store, name='store'),
