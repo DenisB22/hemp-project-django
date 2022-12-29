@@ -181,3 +181,7 @@ def submit_review(request, product_id):
                 data.save()
                 messages.success(request, 'Thank you! Your review has been submitted.')
                 return redirect(url)
+
+
+def about_page(request):
+    return render(request, 'core/about.html')
