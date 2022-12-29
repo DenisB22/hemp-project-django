@@ -46,8 +46,7 @@ def register_user(request):
             profile = UserProfile()
             profile.user_id = user.id
             # profile.profile_picture = 'default/default-user.png'
-            profile.profile_picture = 'https://asset.cloudinary.com/djywfttgp/a99dce152d4284adcd0c19100547c3c9'
-            # profile.profile_picture = 'https: // res.cloudinary.com / djywfttgp / image / upload / v1672302810 / lipoyprlsdcabsbr6xpk.jpg'
+
             profile.save()
 
             # USER ACTIVATION
