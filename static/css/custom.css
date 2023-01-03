@@ -70,3 +70,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   margin-left: auto;
   margin-right: auto;
 }
+
+.card-about{
+    width: 650px;
+}
