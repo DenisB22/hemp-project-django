@@ -71,6 +71,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   margin-right: auto;
 }
 
-main .col-md-9-del{
+main.col-md-9-del{
     width: 650px;
 }
