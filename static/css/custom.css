@@ -74,3 +74,27 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 main.col-md-9-del{
     width: 650px;
 }
+
+.swiper{
+    width: 80%;
+    height: fit-content;
+}
+
+.swiper-slide img{
+    width: 100%;
+}
+
+main.col-md-9-del div.container div.container{
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper .swiper-button-prev, .swiper .swiper-button-next{
+    color: #fff;
+}
+
+.swiper .swiper-pagination-bullet-active{
+    background: #fff;
+}
