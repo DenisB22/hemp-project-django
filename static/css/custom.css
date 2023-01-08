@@ -91,13 +91,6 @@ main.col-md-9-del div.container div.container{
     justify-content: center;
 }
 
-main.col-md-9-del div.container{
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .swiper .swiper-button-prev, .swiper .swiper-button-next{
     color: #fff;
 }
